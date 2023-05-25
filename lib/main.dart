@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:food_flutter/screens/meal_detail_screen.dart';
+import 'package:food_flutter/utils/routes.dart';
 import '../screens/categories_screen.dart';
+import '../screens/categories_meals_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -24,7 +27,33 @@ class MyApp extends StatelessWidget {
               ),
             ),
       ),
-      home: CategoriesScreen(),
+      routes: {
+        AppRoutes.HOME: (ctx) => CategoriesScreen(),
+        AppRoutes.CATEGORIES_MEALS: (ctx) => CategoriesMealsScreen(),
+        AppRoutes.MEAL_DETAIL: (ctx) => MealDetailScreen(),
+      },
+
+      //Rotas alternativas:
+      // onGenerateRoute: (settings) {
+      //   if (settings.name == '/alguma-coisa') {
+      //     return null;
+      //   } else if (settings.name == '/outra-coisa') {
+      //     return null;
+      //   } else {
+      //     return MaterialPageRoute(builder: (_) {
+      //       return CategoriesScreen();
+      //     });
+      //   }
+      // },
+
+      // Quando a rota for desconhecida:
+      // onUnknownRoute: (settings) {
+      //   return MaterialPageRoute(
+      //     builder: (_) {
+      //       return CategoriesScreen();
+      //     },
+      //   );
+      // },
     );
   }
 }
